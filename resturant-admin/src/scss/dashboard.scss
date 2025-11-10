@@ -1,0 +1,14 @@
+.main {
+    .dashboard {
+        .charts {
+            height: 100%;
+            .chart {
+                height: 413px;
+                canvas {
+                    width: 100% !important;
+                    height: 370px !important;
+                }
+            }
+        }
+    }
+}

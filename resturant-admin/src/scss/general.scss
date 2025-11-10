@@ -1,0 +1,248 @@
+.general-settings {
+    padding: 30px;
+    background: #f4f7f9;
+    min-height: 100vh;
+
+    .header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 24px;
+
+        h1 {
+            font-size: 28px;
+            font-weight: normal;
+            color: #2b3a42;
+            margin: 0;
+        }
+
+        .actions {
+            margin-left: auto;
+
+            .btn {
+                &.btn-link {
+                    background: transparent;
+                    border: none;
+                    color: #6c7a89;
+                    cursor: pointer;
+                    margin-right: 12px;
+                }
+
+                &.btn-primary {
+                    background: #009688;
+                    color: white;
+                    border: none;
+                    padding: 8px 20px;
+                    border-radius: 4px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .tabs {
+        display: flex;
+        margin-bottom: 16px;
+
+        button {
+            background: transparent;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #5d6d7e;
+            cursor: pointer;
+
+            &.active {
+                background: #009688;
+                color: white;
+                border-radius: 4px 4px 0 0;
+            }
+        }
+    }
+
+    .tab-content {
+        background: white;
+        border: 1px solid #d5dae3;
+        border-top: none;
+        padding: 24px;
+        border-radius: 0 4px 4px 4px;
+
+        .settings-form {
+            .form-row {
+                display: flex;
+                align-items: center;
+                margin-bottom: 20px;
+
+                label {
+                    width: 30%;
+                    font-weight: 500;
+                    color: #3a4a57;
+
+                    .required {
+                        color: #e74c3c;
+                        margin-left: 4px;
+                    }
+                }
+
+                input[type='text'],
+                input[type='email'] {
+                    width: 70%;
+                    padding: 10px 14px;
+                    font-size: 15px;
+                    border: 1px solid #ccd5dc;
+                    border-radius: 4px;
+                }
+
+                input[type='color'] {
+                    width: auto;
+                    height: 40px;
+                    border: none;
+                    cursor: pointer;
+                }
+
+                &.file-upload {
+                    flex-direction: column;
+                    align-items: flex-start;
+
+                    label {
+                        width: auto;
+                        margin-bottom: 8px;
+                    }
+
+                    input[type='file'] {
+                        margin-top: 4px;
+                    }
+
+                    img {
+                        max-height: 60px;
+                        margin-bottom: 8px;
+                    }
+
+                    small {
+                        color: #7f8c8d;
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+
+        .donation-tab {
+            .form-row {
+                display: flex;
+                margin-bottom: 20px;
+
+                label {
+                    width: 30%;
+                    font-weight: 500;
+                    color: #3a4a57;
+                }
+
+                input[type='text'] {
+                    width: 70%;
+                    padding: 10px 14px;
+                    font-size: 15px;
+                    border: 1px solid #ccd5dc;
+                    border-radius: 4px;
+                }
+            }
+        }
+    }
+}
+
+.admin-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #253d32;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    flex-direction: column;
+    left: 0;
+    right: 0;
+
+    h1 {
+        color: #fff;
+        margin-bottom: 20px;
+    }
+
+
+    .login-container {
+        background: white;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2b3a42;
+            // font-size: 24px;
+            font-weight: 400;
+            position: relative;
+            font-size: 1.5rem;
+
+            &::after {
+                content: "";
+                background-color: #ccd5dc;
+                height: 1px;
+                width: 100px;
+                display: flex;
+                justify-content: center;
+                position: absolute;
+                margin: 0 auto;
+                align-content: center;
+                align-items: center;
+                left: 0;
+                right: 0;
+                bottom: -23px;
+            }
+        }
+    }
+
+    form {
+        .form-group {
+            margin-bottom: 20px;
+
+            label {
+                display: block;
+                margin-bottom: 8px;
+                font-weight: 500;
+                color: #3a4a57;
+            }
+
+            input {
+                width: 100%;
+                padding: 12px 14px;
+                font-size: 16px;
+                border: 1px solid #ccd5dc;
+                border-radius: 4px;
+                box-sizing: border-box;
+
+                &:focus {
+                    outline: none;
+                    border-color: #009688;
+                    box-shadow: 0 0 0 2px rgba(0, 150, 136, 0.2);
+                }
+            }
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background: #009688;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+
+            &:hover {
+                background: #00796b;
+            }
+        }
+    }
+}

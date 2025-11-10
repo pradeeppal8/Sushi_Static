@@ -1,0 +1,79 @@
+.products-page { background: var(--bg-primary); }
+
+/* Hero */
+.products-hero { position: relative; isolation: isolate; }
+.products-hero-media { height: 52vh; min-height: 320px; }
+.products-hero-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.products-hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.35) 40%, rgba(0,0,0,.65)); z-index: 1; }
+.products-hero-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: #fff;
+  padding: 0 1rem;
+}
+.products-hero-content h1 { font-size: 2.4rem; line-height: 1.2; margin: 0 0 .5rem 0; }
+.products-hero-content p { margin: 0 0 1rem 0; opacity: .95; }
+.products-hero-actions { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; }
+
+/* Utilities */
+.container { max-width: 1180px; margin: 0 auto; padding: 0 1rem; }
+.btn { padding: .7rem 1.1rem; border-radius: 6px; font-weight: 600; cursor: pointer; border: 1px solid transparent; }
+.btn.primary { background: var(--accent); color: #fff; }
+.btn.ghost { background: transparent; border-color: rgba(255,255,255,.6); color: #fff; }
+.btn.link-btn { background: transparent; color: var(--accent); border-color: var(--accent); }
+
+/* Features */
+.features { background: var(--bg-secondary); padding: 2.5rem 0; }
+.features h2 { text-align: center; margin: 0 0 .3rem 0; }
+.features .sub { text-align: center; color: var(--text-secondary); margin: 0 0 1.5rem 0; }
+.feature-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; }
+.feature-card { background: var(--card-bg); border-radius: 10px; padding: 1.1rem; display: grid; justify-items: center; gap: .5rem; box-shadow: var(--shadow); }
+.feature-card .icon { width: 44px; height: 44px; border-radius: 50%; background: rgba(15, 118, 110, .15); border: 1px solid rgba(15,118,110,.25); }
+.feature-card p { margin: 0; font-weight: 600; font-size: .95rem; text-align: center; }
+
+/* Info section */
+.info { padding: 2.5rem 0; }
+.info h2 { text-align: center; margin: 0 0 .4rem 0; }
+.info .sub { text-align: center; color: var(--text-secondary); margin: 0 0 2rem 0; }
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.card { background: var(--card-bg); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); display: grid; }
+.card img { width: 100%; height: 190px; object-fit: cover; display: block; }
+.card-body { padding: 1rem; display: grid; gap: .5rem; }
+.card-body h3 { margin: 0; }
+.card-body p { margin: 0; color: var(--text-secondary); }
+.link { color: var(--accent); font-weight: 600; text-decoration: none; }
+
+/* Featured industry */
+.featured { padding: 2.5rem 0; }
+.feature-wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: 1.25rem; align-items: center; }
+.feature-image img { width: 100%; height: 300px; object-fit: cover; border-radius: 10px; box-shadow: var(--shadow); }
+.feature-content h2 { margin: 0 0 .25rem 0; }
+.feature-content h3 { margin: 0 0 .6rem 0; }
+.feature-content p { margin: 0 0 .9rem 0; color: var(--text-secondary); }
+
+/* CTA */
+.cta { background: linear-gradient(135deg, rgba(15,118,110,.08), rgba(15,118,110,.18)); padding: 2.5rem 0; }
+.cta-box { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; box-shadow: var(--shadow); }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .feature-grid { grid-template-columns: repeat(3, 1fr); }
+  .feature-wrap { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .products-hero-media { height: 44vh; min-height: 280px; }
+  .products-hero-content h1 { font-size: 1.9rem; }
+  .cards { grid-template-columns: 1fr 1fr; }
+  .feature-grid { grid-template-columns: 1fr 1fr; }
+  .cta-box { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 520px) {
+  .cards { grid-template-columns: 1fr; }
+  .feature-grid { grid-template-columns: 1fr; }
+}

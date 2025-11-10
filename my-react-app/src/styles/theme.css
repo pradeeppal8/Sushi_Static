@@ -1,0 +1,400 @@
+/* Theme transition animation */
+@keyframes themeChange {
+  0% {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Theme loader styles */
+.theme-loader {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  height: 100vh;
+}
+
+.theme-loader.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.theme-loader .spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #E5B94E;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Apply transitions to theme changes */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.site-header,
+.nav-link,
+.search-input,
+.blog-card,
+.footer,
+button {
+  transition: all 0.3s ease;
+}
+
+/* Theme animation wrapper */
+.theme-wrapper {
+  animation: themeChange 0.3s ease forwards;
+}
+
+:root {
+  /* Light theme variables */
+  --bg-primary-light: #ffffff;
+  --bg-secondary-light: #f8fafc;
+  --text-primary-light: #0A2519;
+  --text-secondary-light: #1a4434;
+  --border-light: #0A2519;
+  --accent-light: #0f766e;
+  --accent-hover-light: #0e8a81;
+  --card-bg-light: #f8fafc;
+  --header-bg-light: #0A2519;
+  --input-bg-light: #f8fafc;
+  --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+  /* Dark theme variables */
+  --bg-primary-dark: #1a1a1a;
+  --bg-secondary-dark: #242424;
+  --text-primary-dark: #ffffff;
+  --text-secondary-dark: #a0aec0;
+  --border-dark: #2d3748;
+  --accent-dark: #646cff;
+  --accent-hover-dark: #747bff;
+  --card-bg-dark: #242424;
+  --header-bg-dark: #1a1a1a;
+  --input-bg-dark: rgba(255, 255, 255, 0.05);
+  --shadow-dark: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Light theme */
+.light {
+  --bg-primary: var(--bg-primary-light);
+  --bg-secondary: var(--bg-secondary-light);
+  --text-primary: var(--text-primary-light);
+  --text-secondary: var(--text-secondary-light);
+  --border-color: var(--border-light);
+  --accent: var(--accent-light);
+  --accent-hover: var(--accent-hover-light);
+  --card-bg: var(--card-bg-light);
+  --header-bg: var(--header-bg-light);
+  --input-bg: var(--input-bg-light);
+  --shadow: var(--shadow-light);
+}
+
+/* Dark theme */
+.dark {
+  --bg-primary: var(--bg-primary-dark);
+  --bg-secondary: var(--bg-secondary-dark);
+  --text-primary: var(--text-primary-dark);
+  --text-secondary: var(--text-secondary-dark);
+  --border-color: var(--border-dark);
+  --accent: var(--accent-dark);
+  --accent-hover: var(--accent-hover-dark);
+  --card-bg: var(--card-bg-dark);
+  --header-bg: var(--header-bg-dark);
+  --input-bg: var(--input-bg-dark);
+  --shadow: var(--shadow-dark);
+}
+
+/* Apply theme variables */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.site-header {
+  background-color: var(--header-bg);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.search-input {
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.search-results {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+  box-shadow: var(--shadow);
+}
+
+.light .search-results {
+  background: #0c2d1f;
+  border: 1px solid rgba(229, 185, 78, 0.2);
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.light .search-result-item {
+  color: white;
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem 0;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* .light .search-result-item:hover {
+  background: rgba(229, 185, 78, 0.1);
+} */
+
+.light .result-title {
+  color: white;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.light .result-type {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.875rem;
+}
+
+.blog-card,
+.auth-container,
+.contact-info {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+}
+
+/* Light mode specific styles */
+.light {
+  background-color: var(--bg-primary-light);
+  background-image: 
+    radial-gradient(at 40% 20%, rgba(100, 108, 255, 0.03) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(100, 108, 255, 0.05) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, rgba(100, 108, 255, 0.02) 0px, transparent 50%);
+}
+
+.light .blog-card,
+.light .auth-container,
+.light .contact-info {
+  background: linear-gradient(to bottom, #ffffff, #f8fafc);
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+.light .site-header {
+  background-color: #0A2519;
+  border-bottom: 1px solid rgba(229, 185, 78, 0.2);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+/* Header elements in light theme */
+.light .brand-title {
+  color: #ffffff !important;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.light .nav-link {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.light .nav-link:hover {
+ background: #253d32;
+  color: #ffffff;
+}
+
+.light .nav-link.active {
+  background: #253d32;
+  color: #0A2519;
+  font-weight: 600;
+}
+button:focus {
+    outline: none;
+}
+
+.light .search-input {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+.light .search-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.light .theme-toggle {
+  color: #fff;
+  background: transparent;
+  border: 0px solid rgba(229, 185, 78, 0.3);
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.light .theme-toggle:hover {
+  background: #253d32;
+  border-color: #E5B94E;
+}
+
+.light .menu-toggle {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.5rem;
+  border-radius: 4px;
+  color: white;
+}
+
+.light .menu-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.light .menu-toggle svg path {
+  stroke: white;
+}
+
+.light .app-body {
+  background: linear-gradient(180deg, 
+    rgba(100, 108, 255, 0.02) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.light .footer {
+  background-color: #f8fafc;
+  border-top: 1px solid #e5e7eb;
+}
+
+.light .blog-card:hover {
+  box-shadow: 0 8px 16px -2px rgba(0, 0, 0, 0.1), 0 4px 8px -2px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+.light .search-results {
+  backdrop-filter: blur(8px);
+  background-color: rgb(36 60 49);
+  border: 0px solid rgba(0, 0, 0, 0.1);
+  width: 100%;
+    padding: 0 16px;
+}
+
+/* Light mode text styles */
+.light .blog-title {
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.light .blog-excerpt {
+  color: #1e293b;
+  font-weight: 400;
+}
+
+.light .result-title {
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.light .author-name {
+  color: #334155;
+  font-weight: 500;
+}
+
+.light .blog-date {
+  color: #64748b;
+}
+
+.light .featured-title {
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.light .nav-link {
+  color: #0f172a;
+  font-weight: 500;
+}
+
+.light .brand-title {
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.light label {
+  color: #0f172a;
+  font-weight: 500;
+}
+
+.nav-link {
+  color: var(--text-primary);
+}
+
+.nav-link:hover {
+  color: #fff;
+  background-color: #0f766e;
+}
+
+/* .nav-link.active {
+  color: var(--accent);
+} */
+
+/* Theme toggle button styles */
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1rem;
+}
+
+.theme-toggle:hover {
+  background-color: var(--input-bg);
+}
+
+.theme-toggle svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Smooth theme transition */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}

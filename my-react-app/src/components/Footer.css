@@ -1,0 +1,186 @@
+.site-footer {
+  background-color: #0A2519;
+  /* Dark green background */
+  padding: 3rem 0;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.dark .site-footer {
+  background-color: #242424;
+  /* Dark green background */
+  padding: 3rem 0;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Left Navigation */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  transition: color 0.3s ease;
+}
+
+.footer-links li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #E5B94E;
+  /* Gold accent color */
+}
+
+/* Center Subscribe Section */
+.footer-subscribe {
+  text-align: center;
+}
+
+.footer-subscribe h3 {
+  color: #E5B94E;
+  /* Gold accent color */
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.subscribe-form {
+  display: flex;
+  max-width: 400px;
+  margin: 0 auto;
+  border: 1px solid rgba(229, 185, 78, 0.3);
+  /* Subtle gold border */
+}
+
+.subscribe-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  border: none;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+.subscribe-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+}
+
+.subscribe-input:focus {
+  outline: none;
+}
+
+.subscribe-button {
+  background: #E5B94E;
+  border: none;
+  color: #0A2519;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  font-size: 1.25rem;
+  transition: background-color 0.3s ease;
+}
+
+.subscribe-button:hover {
+  background: #d4aa3d;
+}
+
+/* Right Social Links */
+.footer-social {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.25rem;
+  transition: color 0.3s ease;
+}
+
+.social-link:hover {
+  color: #E5B94E;
+  /* Gold accent color */
+}
+
+.mobile .app-body .mobile-frame .app-main .site-footer .footer-container {
+  grid-template-columns: 1fr;
+  text-align: center;
+  gap: 3rem;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 3rem;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 2rem;
+  }
+
+  .footer-links li {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-footer {
+    padding: 2rem 0;
+  }
+
+  .footer-container {
+    padding: 0 1rem;
+    gap: 2rem;
+  }
+
+  .subscribe-form {
+    flex-direction: column;
+  }
+
+  .subscribe-button {
+    padding: 0.5rem;
+  }
+}
