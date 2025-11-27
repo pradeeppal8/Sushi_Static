@@ -64,18 +64,11 @@ function Sidebar() {
     );
 }
 
-// function MenuItem({ icon, text, expanded, onClick }) {
-//     return (
-//         <div className="menu-item" onClick={onClick}>
-//             <div className="icon">{icon}</div>
-//             {expanded && <div className="text">{text}</div>}
-//         </div>
-//     );
-// }
-
 const MenuItem = ({ icon, text, expanded, subItems = [] }) => {
     const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate();
+    const [activeIndex, setActiveIndex] = useState(null);
+     const [activeSubItem, setActiveSubItem] = useState(null);
 
     const handleClick = () => {
         if (subItems.length > 0) {
@@ -84,33 +77,42 @@ const MenuItem = ({ icon, text, expanded, subItems = [] }) => {
             navigate(`/${text.toLowerCase()}`);
         }
     };
+    const handleSubItemClick = (item) => {
+        setActiveSubItem(item.label); 
+        navigate(item.path);
+    };
 
     return (
-        <div className="menu-item-wrapper">
-            <div className={`menu-item ${isOpen ? "open" : ""}`} onClick={handleClick}>
-                <div className="icon">{icon}</div>
-                {expanded && <div className="text">{text}</div>}
-                {subItems.length > 0 && (
-                    <div className="dropdown-icon">
-                        {isOpen ? <FaMinus /> : <FaPlus />}
+        <>
+            <div className={`menu-item-wrapper ${activeIndex === text ? "active" : ""}`} onClick={() => setActiveIndex(activeIndex === text ? null : text)}>
+                <div className={`menu-item ${isOpen ? "open" : ""}`} onClick={handleClick}>
+                    <div className="icon">{icon}</div>
+                    {expanded && <div className="text">{text}</div>}
+                    {subItems.length > 0 && (
+                        <>
+                            {expanded && <div className="dropdown-icon">
+                                {isOpen ? <FaMinus /> : <FaPlus />}
+                            </div>}
+                        </>
+                    )}
+                </div>
+
+                {isOpen && subItems.length > 0 && (
+                    <div className="submenu">
+                        {subItems.map((item, i) => (
+                            <div
+                                key={i}
+                                className={`submenu-item ${activeSubItem === item.label ? "active" : ""
+                                    }`}
+                                onClick={() => handleSubItemClick(item)}
+                            >
+                                {expanded && <span>{item.label}</span>}
+                            </div>
+                        ))}
                     </div>
                 )}
             </div>
-
-            {isOpen && subItems.length > 0 && (
-                <div className="submenu">
-                    {subItems.map((item, i) => (
-                        <div
-                            key={i}
-                            className="submenu-item"
-                            onClick={() => navigate(item.path)}
-                        >
-                            {expanded && <span>{item.label}</span>}
-                        </div>
-                    ))}
-                </div>
-            )}
-        </div>
+        </>
     );
 };
 

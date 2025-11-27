@@ -1,0 +1,281 @@
+/* Styles for General Settings page (matches provided design) */
+.general-settings-container {
+    padding: 14px 16px;
+    background: #eef3f4;
+    min-height: 80vh;
+}
+
+.gs-inner {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+}
+
+.gs-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0px 20px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.gs-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: #2d2d2d;
+}
+
+.text-80 {
+    color: #7c858e !important;
+}
+
+.text-80:hover {
+    opacity: 0.5 !important;
+}
+
+.btn-link {
+    text-decoration: none !important;
+    font-weight: 800 !important;
+    padding: 0 !important;
+    font-family: Nunito, system-ui, BlinkMacSystemFont, -apple-system, sans-serif !important;
+}
+
+.btn-link:focus {
+    outline: 0;
+    -webkit-box-shadow: 0 0 0 3px #253d32;
+    box-shadow: 0 0 0 3px #253d32;
+}
+
+.gs-actions {
+    display: flex;
+    gap: 22px;
+    align-items: center;
+}
+
+.gs-actions .gs-cancel {
+    background: transparent;
+    border: none;
+    color: #6b6b6b;
+    cursor: pointer;
+}
+
+.gs-actions .gs-save {
+    background: #253d32;
+    border: none;
+    color: #fff;
+    // padding: 6px 12px;
+    // border-radius: 6px;
+    height: 2.25rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    // line-height: 2.25rem;
+    font-weight: 800;
+    border-radius: .5rem;
+    font-family: Nunito, system-ui, BlinkMacSystemFont, -apple-system, sans-serif !important;
+    cursor: pointer;
+}
+
+.gs-actions .gs-save:hover {
+    background: #1f523b;
+}
+
+// .gs-actions .gs-save:focus {
+//     outline: 0;
+//     -webkit-box-shadow: 0 0 0 3px #253d32;
+//     box-shadow: 0 0 0 3px #253d32;
+// }
+
+.gs-tabs {
+    display: flex;
+    gap: 8px;
+    padding: 0px 0px;
+    background: #f7f9f9;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.gs-tabs .tab {
+    background: transparent;
+    border: 0px solid transparent;
+    padding: 12px 14px;
+    border-radius: 0px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.gs-tabs .tab.active {
+    background: #253d32;
+    color: #fff;
+    border-color: #253d32;
+}
+
+.gs-form {
+    padding: 18px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+.gs-row {
+    display: flex;
+    align-items: flex-start;
+    padding: 18px 0;
+    border-top: 1px solid #f0f0f0;
+}
+
+.gs-label {
+    width: 22%;
+    color: #646c72;
+    font-size: 16px;
+    padding-top: 6px;
+}
+
+.gs-value {
+    width: 78%;
+}
+
+.form-control:focus {
+    border-color: #253d32 !important;
+    box-shadow: 0 0 0 3px rgba(37, 61, 50, 0.2) !important;
+    outline: none;
+}
+
+.required {
+    color: #d9534f;
+    margin-left: 4px;
+    font-weight: 600;
+}
+
+.color-picker-wrap {
+    display: flex;
+    align-items: center;
+}
+
+.color-picker {
+    width: 36px;
+    height: 36px;
+    border: 1px solid #d1d5da;
+    border-radius: 6px;
+    padding: 0;
+}
+
+.color-swatch {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    border: 1px solid #cfd8dc;
+    cursor: pointer;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.color-modal-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1200;
+    height: 100%;
+}
+
+.color-modal {
+    background: #fff;
+    border-radius: 6px;
+    padding: 12px;
+    width: 241px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    border: 1px solid #c6c6c6;
+}
+
+.color-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.swatch {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+}
+
+.color-input-row {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.color-hex-input {
+    flex: 1 1;
+    border: 1px solid #e0e0e0;
+    padding: 3px 8px;
+    border-radius: 3px;
+    width: 141px;
+}
+
+.file-preview {
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.file-preview img {
+    height: 50px;
+    border-radius: 4px;
+    border: 1px solid #e8e8e8;
+    padding: 4px;
+    background: #fff;
+}
+
+.file-preview.small img {
+    height: 24px;
+}
+
+.choose-btn {
+    margin-top: 8px;
+    background: #1f523b !important;
+    font-weight: 800 !important;
+    font-family: Nunito, system-ui, BlinkMacSystemFont, -apple-system, sans-serif !important;
+    text-transform: capitalize !important;
+
+}
+
+.note {
+    font-size: 11px;
+    color: #8b8f92;
+    margin-top: 8px;
+}
+
+.gs-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 20px 22px 28px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.btn-link {
+    background: transparent;
+    border: none;
+    color: #6b6b6b;
+    cursor: pointer;
+}
+
+.btn-save {
+    background: #00875C !important;
+}
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+    .gs-row {
+        flex-direction: column;
+    }
+
+    .gs-label,
+    .gs-value {
+        width: 100%;
+    }
+}

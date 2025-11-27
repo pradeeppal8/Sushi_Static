@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
+import './general.scss';
 import { Box, Button, TextField, Typography, Container } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 const StyledButton = styled(Button)({
-  backgroundColor: '#00A76F',
-  color: 'white',
-  '&:hover': {
-    backgroundColor: '#00875C',
-  },
+    backgroundColor: '#00A76F',
+    color: 'white',
+    '&:hover': {
+        backgroundColor: '#00875C',
+    },
 });
 
 function General() {
@@ -43,158 +44,161 @@ function General() {
         // Handle form submission here
     };
 
+    const [showColorPicker, setShowColorPicker] = useState(false);
+    const [tempColor, setTempColor] = useState(formData.primaryColor || '#ffffff');
+
+    const swatches = ['#06c39a', '#00bfa5', '#00e676', '#3be6a1', '#47a7ff', '#1e88e5', '#8e24aa', '#ab47bc', '#263238', '#1b2b3a', '#ffc107', '#ffeb3b', '#ff5252', '#e53935', '#9e9e9e', '#eceff1'];
+
+    const openColorPicker = () => {
+        setTempColor(formData.primaryColor || '#ffffff');
+        setShowColorPicker(true);
+    };
+
+    const closeColorPicker = () => setShowColorPicker(false);
+
+    const applyTempColor = () => {
+        setFormData(prev => ({ ...prev, primaryColor: tempColor }));
+        setShowColorPicker(false);
+    };
+
     return (
-        <Container maxWidth="lg">
-            <Box sx={{ py: 4 }}>
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 4 }}>
-                    <Typography variant="h4">
-                        General Setting
-                    </Typography>
-                    <Box sx={{ display: 'flex', gap: 2 }}>
-                        <Button variant="text" color="inherit">
-                            Theme Configuration
-                        </Button>
-                        <Button variant="text" color="inherit">
-                            Donation
-                        </Button>
-                        <Button variant="text" color="inherit">
-                            Home
-                        </Button>
-                    </Box>
-                </Box>
-                
-                <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-                    <TextField
-                        fullWidth
-                        label="Website Name (Browser Tab Title)"
-                        name="websiteName"
-                        value={formData.websiteName}
-                        onChange={handleInputChange}
-                        placeholder="Makki Local Site"
-                        required
-                    />
+        <Container maxWidth="lg" className="general-settings-container">
+                <div className="gs-header">
+                    <h2 className="gs-title">General Setting</h2>
+                    <div className="gs-actions">
+                        <button className="btn btn-link dim cursor-pointer text-80 ml-auto">Cancel</button>
+                        <button className="gs-save">Save</button>
+                    </div>
+                </div>
+            <div className="gs-inner">
 
-                    <TextField
-                        fullWidth
-                        label="Support Email"
-                        name="supportEmail"
-                        type="email"
-                        value={formData.supportEmail}
-                        onChange={handleInputChange}
-                        placeholder="rajesh.purswani@gmail.com"
-                        required
-                    />
+                <div className="gs-tabs">
+                    <button className="tab active">Theme Configuration</button>
+                    <button className="tab">Donation</button>
+                    <button className="tab">Home</button>
+                </div>
 
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                        <Typography>Primary Color Palette</Typography>
-                        <input
-                            type="color"
-                            value={formData.primaryColor}
-                            onChange={(e) => handleInputChange({
-                                target: { name: 'primaryColor', value: e.target.value }
-                            })}
-                            style={{ width: '50px', height: '50px', padding: 0, border: 'none' }}
-                        />
-                    </Box>
+                <form className="gs-form" onSubmit={handleSubmit}>
+                    <div className="flex border-b border-40">
+                        <div className="w-1/3 px-8 py-6">
+                            <label for="websiteName" class="inline-block text-80 pt-2 leading-tight">
+                                Website Name (Browser Tab Title)
+                                <span class="text-danger text-sm">*</span></label>
+                        </div>
+                        <div className="py-6 px-8 w-1/2">
+                            <input dusk="websiteName" type="text" placeholder="Website Name" name="websiteName" id="websiteName" class="w-full form-control form-input form-input-bordered flatpickr-input" autocomplete="off" />
+                        </div>
+                    </div>
 
-                    <TextField
-                        fullWidth
-                        label="Subscribe Tagline"
-                        name="subscribeTagline"
-                        value={formData.subscribeTagline}
-                        onChange={handleInputChange}
-                        placeholder="Subscribe"
-                        required
-                    />
+                    <div className="flex border-b border-40">
+                        <div className="w-1/3 px-8 py-6">
+                            <label for="websiteName" class="inline-block text-80 pt-2 leading-tight">
+                                Support Email
+                                <span class="text-danger text-sm">*</span></label>
+                        </div>
+                        <div className="py-6 px-8 w-1/2">
+                            <input fullWidth name="supportEmail" type="email" class="w-full form-control form-input form-input-bordered flatpickr-input" value={formData.supportEmail} onChange={handleInputChange} placeholder="pradeep.pal@gmail.com" />
+                        </div>
+                    </div>
 
-                    <Box>
-                        <Typography sx={{ mb: 2 }}>Header Logo</Typography>
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                            {formData.headerLogo && (
-                                <img 
-                                    src={URL.createObjectURL(formData.headerLogo)} 
-                                    alt="Header Logo Preview" 
-                                    style={{ height: '50px' }}
-                                />
+                    <div className="flex border-b border-40">
+                        <div className="w-1/3 px-8 py-6">
+                            <label for="websiteName" class="inline-block text-80 pt-2 leading-tight">
+                                Primary Color Palatte
+                                <span class="text-danger text-sm">*</span></label>
+                        </div>
+                        <div className="py-6 px-8 w-1/2 color-picker-wrap">
+                            <div className="color-swatch" style={{ background: formData.primaryColor }} onClick={openColorPicker} title="Choose color"></div>
+
+                            {showColorPicker && (
+                                <div className="color-modal-overlay" onClick={closeColorPicker}>
+                                    <div className="color-modal" onClick={(e) => e.stopPropagation()}>
+                                        <div className="color-grid">
+                                            {swatches.map((c) => (
+                                                <button key={c} className="swatch" style={{ background: c }} onClick={() => setTempColor(c)} aria-label={c} />
+                                            ))}
+                                        </div>
+                                        <div className="color-input-row">
+                                            <input className="color-hex-input" value={tempColor} onChange={(e) => setTempColor(e.target.value)} />
+                                            <Button variant="contained" size="small" onClick={applyTempColor} sx={{ ml: 1 }}>Ok</Button>
+                                        </div>
+                                    </div>
+                                </div>
                             )}
-                            <StyledButton
-                                variant="contained"
-                                component="label"
-                            >
-                                Choose File
-                                <input
-                                    type="file"
-                                    hidden
-                                    accept="image/*"
-                                    onChange={handleFileChange('headerLogo')}
-                                />
-                            </StyledButton>
-                            <Typography variant="caption">Note: Image Size to be uploaded is 300 x 61</Typography>
-                        </Box>
-                    </Box>
+                        </div>
+                    </div>
 
-                    <Box>
-                        <Typography sx={{ mb: 2 }}>Footer Logo</Typography>
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                            {formData.footerLogo && (
-                                <img 
-                                    src={URL.createObjectURL(formData.footerLogo)} 
-                                    alt="Footer Logo Preview" 
-                                    style={{ height: '50px' }}
-                                />
-                            )}
-                            <StyledButton
-                                variant="contained"
-                                component="label"
-                            >
-                                Choose File
-                                <input
-                                    type="file"
-                                    hidden
-                                    accept="image/*"
-                                    onChange={handleFileChange('footerLogo')}
-                                />
-                            </StyledButton>
-                            <Typography variant="caption">Note: Image Size to be uploaded is 300 x 61</Typography>
-                        </Box>
-                    </Box>
+                    <div className="flex border-b border-40">
+                        <div className="w-1/3 px-8 py-6">
+                            <label for="websiteName" class="inline-block text-80 pt-2 leading-tight">
+                                Subscribe Tagline
+                                <span class="text-danger text-sm">*</span></label>
+                        </div>
+                        <div className="py-6 px-8 w-1/2">
+                            <input fullWidth name="subscribeTagline" class="w-full form-control form-input form-input-bordered flatpickr-input" value={formData.subscribeTagline} onChange={handleInputChange} placeholder="Subscribe" />
+                        </div>
+                    </div>
 
-                    <Box>
-                        <Typography sx={{ mb: 2 }}>Favicon</Typography>
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                            {formData.favicon && (
-                                <img 
-                                    src={URL.createObjectURL(formData.favicon)} 
-                                    alt="Favicon Preview" 
-                                    style={{ height: '25px' }}
-                                />
-                            )}
-                            <StyledButton
-                                variant="contained"
-                                component="label"
-                            >
+                    <div className="flex border-b border-40">
+                        <div className="w-1/3 px-8 py-6">
+                            <label for="websiteName" class="inline-block text-80 pt-2 leading-tight">
+                                Header Logo
+                            </label>
+                        </div>
+                        <div className="py-6 px-8 w-1/2" style={{display: 'flex', flexDirection: 'column'}}>
+                            <div className="file-preview">
+                                {formData.headerLogo ? <img src={URL.createObjectURL(formData.headerLogo)} alt="Header" /> : <div className="placeholder"> </div>}
+                            </div>
+                            <StyledButton variant="contained" component="label" className="choose-btn" style={{width: '23%'}}>
                                 Choose File
-                                <input
-                                    type="file"
-                                    hidden
-                                    accept="image/*"
-                                    onChange={handleFileChange('favicon')}
-                                />
+                                <input type="file" hidden accept="image/*" onChange={handleFileChange('headerLogo')} />
                             </StyledButton>
-                            <Typography variant="caption">Note: Image Size to be uploaded is 29 x 29</Typography>
-                        </Box>
-                    </Box>
+                            <div className="note">Note: Image Size to be uploaded is <strong>300 x 61</strong></div>
+                        </div>
+                    </div>
 
-                    <Box sx={{ display: 'flex', gap: 2, justifyContent: 'flex-end', mt: 2 }}>
-                        <Button variant="outlined" color="primary">
-                            Cancel
-                        </Button>
-                        <StyledButton type="submit" variant="contained">
-                            Save
-                        </StyledButton>
-                    </Box>
-                </Box>
-            </Box>
+                    <div className="flex border-b border-40">
+                        <div className="w-1/3 px-8 py-6">
+                            <label for="websiteName" class="inline-block text-80 pt-2 leading-tight">
+                                Footer Logo
+                            </label>
+                        </div>
+                        <div className="py-6 px-8 w-1/2">
+                            <div className="file-preview">
+                                {formData.footerLogo ? <img src={URL.createObjectURL(formData.footerLogo)} alt="Footer" /> : <div className="placeholder"> </div>}
+                            </div>
+                            <StyledButton variant="contained" component="label" className="choose-btn">
+                                Choose File
+                                <input type="file" hidden accept="image/*" onChange={handleFileChange('footerLogo')} />
+                            </StyledButton>
+                            <div className="note">Note: Image Size to be uploaded is <strong>300 x 61</strong></div>
+                        </div>
+                    </div>
+
+                    <div className="flex border-40">
+                        <div className="w-1/3 px-8 py-6">
+                            <label for="websiteName" class="inline-block text-80 pt-2 leading-tight">
+                                Favicon
+                            </label>
+                        </div>
+                        <div className="py-6 px-8 w-1/2">
+                            <div className="file-preview small">
+                                {formData.favicon ? <img src={URL.createObjectURL(formData.favicon)} alt="Favicon" /> : <div className="placeholder small"> </div>}
+                            </div>
+                            <StyledButton variant="contained" component="label" className="choose-btn">
+                                Choose File
+                                <input type="file" hidden accept="image/*" onChange={handleFileChange('favicon')} />
+                            </StyledButton>
+                            <div className="note">Note: Image Size to be uploaded is <strong>26 x 25</strong></div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div className="gs-actions mt-4">
+                <button className="btn btn-link dim cursor-pointer text-80 ml-auto">Cancel</button>
+                <button type="submit" variant="contained" className="gs-save">Save</button>
+            </div>
         </Container>
     );
 };

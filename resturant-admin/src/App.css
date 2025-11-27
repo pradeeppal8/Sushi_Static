@@ -4,6 +4,10 @@ body {
   background: #f9f9f9;
 }
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .app {
   display: flex;
   height: 100vh;
@@ -18,6 +22,10 @@ body {
 }
 .dashboard {
   padding: 0 18px;
+}
+.leading-tight {
+  color: #7c858e;
+  font-size: 17px;
 }
 
 .topbar {
@@ -94,6 +102,10 @@ body {
   color: #fff;
   cursor: pointer;
   transition: color 0.3s ease;
+}
+.submenu-item.active {
+  color: #afafaf;
+    font-weight: 700;
 }
 
 .submenu-item:hover {

@@ -34,7 +34,7 @@ $background-color_2: #253d32;
 
     &.collapsed {
         .sidebar.collapsed {
-            width: 86%;
+            width: 100%;
         }
     }
 }
@@ -51,7 +51,7 @@ $background-color_2: #253d32;
 
 .sidebar.collapsed {
     width: 4%;
-    border-radius: 50px 50px 0 0;
+    // border-radius: 50px 50px 0 0;
 
     .menu-item {
         justify-content: center;
@@ -75,10 +75,16 @@ $background-color_2: #253d32;
 .top-section {
     display: flex;
     align-items: center;
-    padding: 7px 20px;
+    padding: 9px 20px;
     margin-bottom: 15px;
     justify-content: center;
     background-color: #0A2519;
+}
+
+.drop.collapsed {
+    .top-section {
+        padding: 18px 20px;
+    }
 }
 
 .logo {

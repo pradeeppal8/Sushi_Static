@@ -126,41 +126,136 @@ function App() {
          
           {showMenuModal && (
             <div className="modal-overlay" role="dialog" aria-modal="true" onClick={() => setShowMenuModal(false)}>
-              <div className="modal" onClick={(e) => e.stopPropagation()}>
-                <div className="modal-header">
-                  <h2>Restaurant Menu</h2>
-                  <button className="modal-close" aria-label="Close" onClick={() => setShowMenuModal(false)}>×</button>
+              <div className="modal modern-menu-modal" onClick={(e) => e.stopPropagation()}>
+                {/* Modal Header with Background Image */}
+                <div className="modal-header-premium">
+                  <div className="modal-header-content">
+                    <h2 className="modal-title">Menu</h2>
+                    <p className="modal-subtitle">Special Menu Items</p>
+                  </div>
+                  <button className="modal-close-premium" aria-label="Close" onClick={() => setShowMenuModal(false)}>
+                    <span>×</span>
+                  </button>
                 </div>
-                <div className="modal-body">
-                  <div className="menu-grid">
-                    <div className="menu-col">
-                      <h3>Starters</h3>
-                      <ul>
-                        <li>Tomato Soup <span>$6</span></li>
-                        <li>Garlic Bread <span>$5</span></li>
-                        <li>Caesar Salad <span>$7</span></li>
-                      </ul>
+
+                {/* Modal Body with Sections */}
+                <div className="modal-body-premium">
+                  <div className="menu-sections-wrapper">
+                    {/* Starters Section */}
+                    <div className="menu-card">
+                      <div className="menu-card-image-wrapper">
+                        <img src={new URL('../assets/image1.png', import.meta.url).href} alt="Starters" className="menu-card-image" />
+                        <div className="image-overlay"></div>
+                      </div>
+                      <div className="menu-card-content">
+                        <h3 className="menu-card-title">Starters</h3>
+                        <ul className="menu-items-list">
+                          <li className="menu-item">
+                            <div className="item-header">
+                              <span className="menu-item-name">Tomato Soup</span>
+                              <span className="menu-item-price">$6</span>
+                            </div>
+                            <p className="item-description">Creamy & Fresh</p>
+                          </li>
+                          <li className="menu-item">
+                            <div className="item-header">
+                              <span className="menu-item-name">Garlic Bread</span>
+                              <span className="menu-item-price">$5</span>
+                            </div>
+                            <p className="item-description">Golden & Crispy</p>
+                          </li>
+                          <li className="menu-item">
+                            <div className="item-header">
+                              <span className="menu-item-name">Caesar Salad</span>
+                              <span className="menu-item-price">$7</span>
+                            </div>
+                            <p className="item-description">Fresh & Healthy</p>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
-                    <div className="menu-col">
-                      <h3>Mains</h3>
-                      <ul>
-                        <li>Grilled Chicken <span>$14</span></li>
-                        <li>Veggie Pasta <span>$12</span></li>
-                        <li>Margherita Pizza <span>$11</span></li>
-                      </ul>
+
+                    {/* Mains Section */}
+                    <div className="menu-card">
+                      <div className="menu-card-image-wrapper">
+                        <img src={new URL('../assets/image2.png', import.meta.url).href} alt="Mains" className="menu-card-image" />
+                        <div className="image-overlay"></div>
+                      </div>
+                      <div className="menu-card-content">
+                        <h3 className="menu-card-title">Main Courses</h3>
+                        <ul className="menu-items-list">
+                          <li className="menu-item">
+                            <div className="item-header">
+                              <span className="menu-item-name">Grilled Chicken</span>
+                              <span className="menu-item-price">$14</span>
+                            </div>
+                            <p className="item-description">Perfectly Cooked</p>
+                          </li>
+                          <li className="menu-item">
+                            <div className="item-header">
+                              <span className="menu-item-name">Veggie Pasta</span>
+                              <span className="menu-item-price">$12</span>
+                            </div>
+                            <p className="item-description">Organic & Fresh</p>
+                          </li>
+                          <li className="menu-item">
+                            <div className="item-header">
+                              <span className="menu-item-name">Margherita Pizza</span>
+                              <span className="menu-item-price">$11</span>
+                            </div>
+                            <p className="item-description">Authentic Recipe</p>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
-                    <div className="menu-col">
-                      <h3>Drinks</h3>
-                      <ul>
-                        <li>Lemonade <span>$4</span></li>
-                        <li>Iced Tea <span>$4</span></li>
-                        <li>Espresso <span>$3</span></li>
-                      </ul>
+
+                    {/* Drinks & Desserts Section */}
+                    <div className="menu-card">
+                      <div className="menu-card-image-wrapper">
+                        <img src={new URL('../assets/image3.png', import.meta.url).href} alt="Beverages" className="menu-card-image" />
+                        <div className="image-overlay"></div>
+                      </div>
+                      <div className="menu-card-content">
+                        <h3 className="menu-card-title">Beverages</h3>
+                        <ul className="menu-items-list">
+                          <li className="menu-item">
+                            <div className="item-header">
+                              <span className="menu-item-name">Lemonade</span>
+                              <span className="menu-item-price">$4</span>
+                            </div>
+                            <p className="item-description">Refreshing & Cold</p>
+                          </li>
+                          <li className="menu-item">
+                            <div className="item-header">
+                              <span className="menu-item-name">Iced Tea</span>
+                              <span className="menu-item-price">$4</span>
+                            </div>
+                            <p className="item-description">Premium Blend</p>
+                          </li>
+                          <li className="menu-item">
+                            <div className="item-header">
+                              <span className="menu-item-name">Espresso</span>
+                              <span className="menu-item-price">$3</span>
+                            </div>
+                            <p className="item-description">Bold & Rich</p>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div className="modal-footer">
-                  <button className="btn primary" onClick={() => setShowMenuModal(false)}>Order Now</button>
+
+                {/* Modal Footer */}
+                <div className="modal-footer-premium">
+                  <div className="footer-content">
+                    <button className="btn btn-order" onClick={() => setShowMenuModal(false)}>
+                      <span className="btn-icon">🛒</span>
+                      Order Now
+                    </button>
+                    <button className="btn btn-cancel" onClick={() => setShowMenuModal(false)}>
+                      Cancel
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
